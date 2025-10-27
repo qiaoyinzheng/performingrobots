@@ -46,10 +46,14 @@ Design Finished
 <img src="https://github.com/user-attachments/assets/751359aa-cdee-46fb-819f-09203b0cb613" alt="497561909-1b4c6ab7-223d-4286-ad2a-42fd2286efa2" width="250" style="height:auto;" />
 
 Entire Body Finished 
+
 We rediscussed our list to be finished at midterm checkpoint again at Tuesday as finishing the entire body attachment by this Thursday Oct 23, so we accomplished servo attachment and readjust our arm to attach to the servo.
+
 Besides this, we also worked on building the skeleton of cardboard head and discussed the mechanism of ears wiggling servo.
 
 # Plan for Oct 30
 By this Thursday Oct 30, we plan to finish building the head skeleton and Ears Wiggling Mechanism and attach it to the body, which we could have everything we need to go to the fabrication shop for costume and voice over.
+
 Ears Wiggling Mechanism
+
 Finish head skeleton

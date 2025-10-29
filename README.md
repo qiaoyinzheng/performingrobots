@@ -38,6 +38,8 @@ Finished
 
 # Oct 23
 Servo Attached
+Servo Code Tested
+(Sample code I used from fall24: https://github.com/oomie/performingRobots/blob/main/code/finalRecieverCode.ino)
 
 <img src="https://github.com/user-attachments/assets/1426f04a-895b-4377-8518-4fc75c7733e4" alt="Servo" width="250" style="height:auto;" />
 
@@ -50,6 +52,7 @@ Entire Body Finished
 We rediscussed our list to be finished at midterm checkpoint again at Tuesday as finishing the entire body attachment by this Thursday Oct 23, so we accomplished servo attachment and readjust our arm to attach to the servo.
 
 Besides this, we also worked on building the skeleton of cardboard head and discussed the mechanism of ears wiggling servo.
+
 
 # Plan for Oct 30
 By this Thursday Oct 30, we plan to finish building the head skeleton and Ears Wiggling Mechanism and attach it to the body, which we could have everything we need to go to the fabrication shop for costume and voice over.

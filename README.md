@@ -60,3 +60,15 @@ By this Thursday Oct 30, we plan to finish building the head skeleton and Ears W
 Ears Wiggling Mechanism
 
 Finish head skeleton
+
+# Plan for Nov 6
+nRF system to control servos
+nRF system to control MMS 2 sound clips
+All batteries charged
+Names on all items
+Robot can drive
+All Finished
+
+# Plan for Nov 13
+Motors Re-attachment
+Balance the wheels and servos

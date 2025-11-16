@@ -482,6 +482,7 @@ void setupServoMotors() {
   // resting position
   LeftArm.write(60);
   RightArm.write(60);
+  
   //  antenna.attach(ANTENNA_SERVO_PIN);
   //  tail.attach(TAIL_SERVO_PIN);
   //  grabber.attach(GRABBER_SERVO_PIN);
@@ -612,6 +613,9 @@ void drawAngryEyes(uint32_t color) {
   matrix.show();
 }
 
+ // vairables for testing slow down servo example, delete if doesn't work
+int currentArmAngle = 100;
+int armStepSize = 5;
 
 
 void loop() {
@@ -628,10 +632,34 @@ void loop() {
     switch (data.stateNumber) {
       case 0:
         matrix.clear();
-        Serial.print(F("moving both arm to 120"));
+        Serial.print(F("moving both arm to 0"));
+        // start of testing slow down servo example, delete if doesn't work
+        // this moves the arm slowly
+        while (currentArmAngle != 180) {
+
+          // if it's bigger, then reduce the angle
+          if (currentArmAngle > 180) {
+            currentArmAngle -= armStepSize;
+          } else {  // if it's not bigger it must be smaller
+                    // so increase the angle
+            currentArmAngle += armStepSize;
+          }
+
+          // check to see if we are within the step size
+          if (abs(currentArmAngle - 180) < armStepSize) {
+            // if so, just put us there
+            currentArmAngle = 180;
+          }
+
+          // finally, actually write to the servo motor
+          RightArm.write(currentArmAngle);
+        }
+        // end of testing slow down code
+
         LeftArm.write(0);
-        RightArm.write(0);
+        // RightArm.write(0);
         Serial.println(F("Playing track AngryKnife"));
+        // musicPlayer.startPlayingFile("/track001.mp3");
         musicPlayer.startPlayingFile("/AngryKni.mp3");
         matrix.drawRect(2, 2, 6, 6, matrix.Color(200, 90, 30));
         matrix.show();
@@ -644,10 +672,12 @@ void loop() {
         break;
       case 1:
         matrix.clear();
-        Serial.print(F("moving arms to 0"));
+        Serial.print(F("moving arms to default resting position.\n"));
+        
         LeftArm.write(60);
         RightArm.write(60);
-        Serial.println(F("Playing track Smirking"));
+        Serial.println(F("Playing track Smirking."));
+        // musicPlayer.startPlayingFile("/track002.mp3");
         musicPlayer.startPlayingFile("/Smirking.mp3");
         matrix.drawRect(2, 2, 5, 5, matrix.Color(0, 200, 30));
         matrix.show();

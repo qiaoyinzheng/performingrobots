@@ -71,4 +71,12 @@ All Finished
 
 # Plan for Nov 13
 Motors Re-attachment
+Finished
+
+# Plan for Nov 17
 Balance the wheels and servos
+
+# Plan for Nov 20
+Neopixels and Servo coding
+Making Head
+Sound Elevenlabs

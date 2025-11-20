@@ -80,3 +80,27 @@ Balance the wheels and servos
 Neopixels and Servo coding
 Making Head
 Sound Elevenlabs
+
+# Plan for Rest
+
+
+Clothes Get Clips
+Painting
+Makeup
+Cutting Wigs
+
+Add to Cases
+
+1. Neopixels
+Design Sprites
+- Regular (Marilyn Monroe)
+- Angry
+- Happy (Dancing)
+
+2. Script Sound Elevenlabs
+Send to SD cards
+
+3. Servo
+2 ears moving when talking
+Dance Move
+Raise Pan when Angry

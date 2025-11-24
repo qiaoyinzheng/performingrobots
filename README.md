@@ -104,3 +104,15 @@ Send to SD cards
 2 ears moving when talking
 Dance Move
 Raise Pan when Angry
+
+# To do before Nov 25
+attach head
+cases(done)
+ears
+eye
+sprites(done)
+sound clips(done)
+clothing
+paint hands and face(done)
+wire management
+

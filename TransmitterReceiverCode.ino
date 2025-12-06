@@ -157,7 +157,7 @@ char* theStates[] = {
   "8 feeling fly",
   "9 overreacting",
   "10 you're supposed",
-  "11 ohhhhh here we",
+  "11 Ohhhhh here ",
   "12 knife mode angry face",
   "13 go to bed",
   "14 put down mode",
@@ -181,7 +181,8 @@ char* theStates[] = {
   "32 she understood",
   "33 angry face",
   "34 normal face",
-  "35 dance move"
+  "35 dance move",
+  "36 close face"
 };
 
 
@@ -462,9 +463,9 @@ Servo RightEar;
 // Change Later
 
 // change as per your robot
-const int RIGHT_ARM_RELAX = 60;
+const int RIGHT_ARM_RELAX = 20;
+const int LEFT_ARM_RELAX = 50;
 const int RIGHT_EAR_RELAX = 160;
-const int LEFT_ARM_RELAX = 120;
 // const int NOSE_WRINKLE = 45;
 // const int NOSE_TWEAK = 90;
 // const int TAIL_ANGRY = 0;
@@ -679,26 +680,44 @@ void stopTalkingEffect() {
 }
 
 
+
+  
+  // Serial.print(isTalking);
+  // Serial.print("\t");
+  // Serial.print(now);
+  // Serial.print("\t");
+  // Serial.print(talkEndTimeMs);
+  // Serial.print("\t");
+  // Serial.print(lastTalkFlipMs);
+  // Serial.print("\t");
+  // Serial.print(talkIntervalMs);
+  // Serial.print("\n");
+  // delay(200);
 void updateTalkingEffect() {
+  // If we aren't supposed to be talking, do nothing
   if (!isTalking) return;
 
-  unsigned long now = millis();
+  unsigned long currentMillis = millis();
 
-  // Stop after duration
-  if (now >= talkEndTimeMs) {
+  // Check if time is up
+  if (currentMillis >= talkEndTimeMs) {
     stopTalkingEffect();
     return;
   }
 
-  // Time to flip?
-  if (now - lastTalkFlipMs >= talkIntervalMs) {
+  // Animation Timer: Only flip face if enough time has passed
+  if (currentMillis - lastTalkFlipMs >= talkIntervalMs) {
+    // Save the last time we flipped
+    lastTalkFlipMs = currentMillis;
+
+    // Flip the mouth state
     mouthOpen = !mouthOpen;
+
     if (mouthOpen) {
       drawFace(currentOpenFace);
     } else {
       drawFace(currentClosedFace);
     }
-    lastTalkFlipMs = now;
   }
 }
 
@@ -756,21 +775,34 @@ void moveRightEarTo(int targetAngle) {
 }
 
 void resetArms() {
+  // 1. Attach to move them
+  if (!RightArm.attached()) RightArm.attach(RIGHT_ARM_PIN);
+  if (!LeftArm.attached()) LeftArm.attach(LEFT_ARM_PIN);
+  if (!RightEar.attached()) RightEar.attach(RIGHT_EAR_PIN);
 
+  // 2. Move to Relax Position (Using your existing helper functions)
   moveRightTo(RIGHT_ARM_RELAX);
   moveLeftTo(LEFT_ARM_RELAX);
   moveRightEarTo(RIGHT_EAR_RELAX);
+
+  // 3. DETACH to stop audio interference
+  RightArm.detach();
+  LeftArm.detach();
+  RightEar.detach();
 }
 
 void danceMove() {
+  if (!RightArm.attached()) RightArm.attach(RIGHT_ARM_PIN);
+  if (!LeftArm.attached())  LeftArm.attach(LEFT_ARM_PIN);
+  if (!RightEar.attached()) RightEar.attach(RIGHT_EAR_PIN);
   for (int i = 1; i <= 6; i++) {
 
-    moveRightTo(170);
-    moveLeftTo(50);
-    moveRightTo(120);
-    moveLeftTo(20);
+    moveRightTo(110);
+    moveLeftTo(0);
+    moveRightTo(80);
+    moveLeftTo(40);
     for (int j = 0; j < 2; j++) {
-      RightEar.write(160);
+      RightEar.write(170);
       delay(120);
       RightEar.write(130);
       delay(120);
@@ -805,203 +837,347 @@ void loop() {
         matrix.clear();
         drawFace(openMouth);
         resetArms();        
-        
-        
                 
         break;
+
       case 1:
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/Smirking.mp3");
         danceMove();
-        
-        
-        
-        
         break;
+
       case 2:
         danceMove();
-        
         resetArms();
-        
         break;
+
       case 3:
+        if (RightArm.attached()) RightArm.detach();
+        if (LeftArm.attached()) LeftArm.detach();
+        if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
+        Serial.println(musicPlayer.playingMusic);
         musicPlayer.startPlayingFile("/01TheyAl.mp3");
         startTalkingEffect(openMouth, closedMouth, 1000);
-      
-      
         break;
+      
       case 4:
         danceMove();
-        
         resetArms();
-      
         break;
+
       case 5:
+        if (RightArm.attached()) RightArm.detach();
+        if (LeftArm.attached()) LeftArm.detach();
+        if (RightEar.attached()) RightEar.detach();
         resetPixels();
         break;
+
       case 6:
+        
         drawFace(openMouth);
         break;
+
       case 7:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/02SoDisc.mp3");
         startTalkingEffect(openMouth, closedMouth, 7000);
+        drawFace(openMouth);
         break;
 
       case 8:
+        
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/03Feelin.mp3");
         startTalkingEffect(openMouth, closedMouth, 9000);
         break;
+
       case 9:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/04Overre.mp3");
         startTalkingEffect(openMouth, closedMouth, 7000);
         break;
+
       case 10:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/05You're.mp3");
         startTalkingEffect(openMouth, closedMouth, 3000);
         break;
-      
-        
-        
-
         
       case 11:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/06Ohhhhh.mp3");
         startTalkingEffect(openMouth, closedMouth, 21000);
-        
         break;
+      
       case 12:
-        if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
-        musicPlayer.startPlayingFile("/AngryKni.mp3");
-        RightArm.write(150);
-        matrix.setBrightness(10);
+        if (!RightArm.attached()) RightArm.attach(RIGHT_ARM_PIN);
+        // if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        // musicPlayer.softReset();
+        // musicPlayer.startPlayingFile("/AngryKni.mp3");
+        RightArm.write(110);
+        // matrix.setBrightness(5);
+        // this might steal too much power?
+        // without serial printing, when this starts, it flashes angry then goes back
         drawFace(angry);
         break;
+      
       case 13:
+        if (RightArm.attached()) RightArm.detach();
+        if (LeftArm.attached()) LeftArm.detach();
+        if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/07GOTOBE.mp3");
-        // startTalkingEffect(openMouth, closedMouth, 3000);
         break;
+
       case 14:
         resetArms();
         break;
+
       case 15:
+        if (RightArm.attached()) RightArm.detach();
+        if (LeftArm.attached()) LeftArm.detach();
+        if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/08YouKno.mp3");
-        // startTalkingEffect(openMouth, closedMouth, 10000);
         break;
+
       case 16:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/09SeeIfI.mp3");
-        // startTalkingEffect(openMouth, closedMouth, 10000);
         break;
+
       case 17:
-        if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
-        musicPlayer.startPlayingFile("/AngryKni.mp3");
-        RightArm.write(150);
+        if (!RightArm.attached()) RightArm.attach(RIGHT_ARM_PIN);
+        // if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        // musicPlayer.softReset();
+        // musicPlayer.startPlayingFile("/AngryKni.mp3");
+        
+        RightArm.write(110);
+        // drawFace(angry);
         break;
+
       case 18:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/10Filing.mp3");
-        // startTalkingEffect(openMouth, closedMouth, 10000);
         break;
+
       case 19:
         resetArms();
         break;
+
       case 20:
+        if (RightArm.attached()) RightArm.detach();
+        if (LeftArm.attached()) LeftArm.detach();
+        if (RightEar.attached()) RightEar.detach();
         resetPixels();
         break;
 
       case 21:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         drawFace(openMouth);
         break;
-      
+
       case 22:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
+        // musicPlayer.startPlayingFile("/Typinggg.mp3");
         musicPlayer.startPlayingFile("/15OfCour.mp3");
         startTalkingEffect(openMouth, closedMouth, 2000);
         break;
+
       case 23:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
+        // musicPlayer.startPlayingFile("/Typinggg.mp3");
         musicPlayer.startPlayingFile("/16YourCo.mp3");
         startTalkingEffect(openMouth, closedMouth, 2000);
         break;
+
       case 24:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
+        // musicPlayer.startPlayingFile("/Typinggg.mp3");
         musicPlayer.startPlayingFile("/17AndGai.mp3");
         startTalkingEffect(openMouth, closedMouth, 2000);
         break;
+
       case 25:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         resetPixels();
         break;
 
       case 26:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         drawFace(openMouth);
         break;
+
       case 27:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/AndSaulD.mp3");
         startTalkingEffect(openMouth, closedMouth, 7000);
         break;
+
       case 28:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/19WeWere.mp3");
         startTalkingEffect(openMouth, closedMouth, 2000);
         break;
+
       case 29:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/20Honest.mp3");
         startTalkingEffect(openMouth, closedMouth, 4000);
         break;
+
       case 30:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/21Wedisc.mp3");
         startTalkingEffect(openMouth, closedMouth, 5000);
         break;
+
       case 31:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/22ThisIs.mp3");
         startTalkingEffect(openMouth, closedMouth, 1000);
         break;
+
       case 32:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         if (musicPlayer.playingMusic) musicPlayer.stopPlaying();
+        musicPlayer.softReset();
         musicPlayer.startPlayingFile("/23SheUnd.mp3");
         startTalkingEffect(openMouth, closedMouth, 3000);
         break;
+
       case 33:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         drawFace(angry);
-        
         break;
+
       case 34:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         drawFace(openMouth);
         break;
+
       case 35:
         danceMove();
-        
         resetArms();
         break;
+
       case 36:
+        // if (RightArm.attached()) RightArm.detach();
+        // if (LeftArm.attached()) LeftArm.detach();
+        // if (RightEar.attached()) RightEar.detach();
         resetPixels();
+        break;
 
-
+      case 37:
+        
+        Serial.print("Free Memory = ");
+        Serial.print(freeMemory());
+        Serial.println(F(" bytes"));
+        break;
 
       default:
         Serial.println(F("Invalid option"));
     }
-
-
-
   }
   updateTalkingEffect();
   if (isTalking && musicPlayer.stopped()) {
     stopTalkingEffect();
   }
-}  
+} 
 // end of loop()
 // end of receiver code
 // CHANGEHERE
+
+
+#ifdef __arm__
+// should use uinstd.h to define sbrk but Due causes a conflict
+extern "C" char* sbrk(int incr);
+#else  // __ARM__
+extern char *__brkval;
+#endif  // __arm__
+
+
+int freeMemory() {
+  char top;
+#ifdef __arm__
+  return &top - reinterpret_cast<char*>(sbrk(0));
+#elif defined(CORE_TEENSY) || (ARDUINO > 103 && ARDUINO != 151)
+  return &top - __brkval;
+#else  // __arm__
+  return __brkval ? &top - __brkval : &top - __malloc_heap_start;
+#endif  // __arm__
+}

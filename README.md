@@ -11,6 +11,8 @@
 ### 2. Script + Sound (ElevenLabs)
 - Organized voice lines into highlighted case blocks
   - https://docs.google.com/document/d/1EIHsOlQh53dqaFov1w1aS358Y4-wtV9ejwBwsOQNf1Q/edit?usp=sharing
+- Adding Audio Tags using V3 Tag Generator
+  - https://audio-generation-plugin.com/elevenlabs-v3-tag-generator/
 - Generate voice using ElevenLabs
   - https://elevenlabs.io/voice-library/mother
   - The Multitasking Mom, English, Eleven V3 (Alpha), mid speed

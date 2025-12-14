@@ -48,7 +48,7 @@
 <img src="https://github.com/user-attachments/assets/1b396cde-1561-4e67-8fcc-66b3744266d6" alt="Testing Transmitter" width="250" style="height:auto;" />
 
 - Attached Arduino and power bank onto the base
-- Wiring (I found it more intuitive if I actually color label each wire)
+- Wiring (I found it more intuitive if I actually color label each)
 <img src="https://github.com/user-attachments/assets/a0ca8aa2-25c6-4ad8-9d7a-223e91d6b7a0" alt="Color Label Wire" width="250" style="height:auto;" />
 
 - Learned hobby RC workflow

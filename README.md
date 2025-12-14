@@ -212,15 +212,17 @@ No.1 priority: fix audio bug
 - Audio testing
 - Decided to switch back to the original Arduino before the show because case response became less reliable on the new one
 - Final look
-
 <img src="https://github.com/user-attachments/assets/85171516-a878-4bb7-8821-9682aa4218e6" alt="Final look" width="250" style="height:auto;" />
+- Final Show
+<img src="https://github.com/user-attachments/assets/49ce9061-5fb6-44c8-ab3d-ebefa5da12b5" alt="Final Show" width="250" style="height:auto;" />
+
 
 ---
 
 ## Team workflow
 ### Split responsibilities with Mariam
-- Mariam had a family emergency after fall break, so we discussed the best collaboration method and decided she would mainly help with decoration and assist me in class by recapping what I completed after class
-- I worked through the main fabrication, coding, and debugging sessions, and I was proud and surprised by how much I learned running the entire setup myself
+- Mariam had a family emergency after fall break, so we discussed the best collaboration method and decided she would mainly help with decoration and assist me in class by recapping what I completed after class.
+- I worked through the main fabrication, coding, and debugging sessions, and I was proud and surprised by how much I learned running the entire setup myself.
 
-# Thank you Professor Shiloh!! 🫶  
-I am so glad I could come to Abu Dhabi this semester and register for this class. It is truly a once in a lifetime opportunity
+# Thank you Performing Robots Fall25!! Thank you Mariam! Thank you Professor Shiloh!! 🫶  
+I am so glad I could come to Abu Dhabi this semester and register for this class. It is truly a once in a lifetime opportunity.

@@ -32,6 +32,9 @@
 - Cut base to 40 cm width in the scene shop
 - Started planning how electronics will be attached to the base
 
+<img src="https://github.com/user-attachments/assets/457d9c3e-dcf6-4668-844b-0ecc8ec81ab7" alt="Base Support Cutting" width="250" style="height:auto;" />
+
+
 ### Sep 23
 - Learned soldering in class
 - Learned L298 motor and H-bridge basics
@@ -45,12 +48,18 @@
 <img src="https://github.com/user-attachments/assets/1b396cde-1561-4e67-8fcc-66b3744266d6" alt="Testing Transmitter" width="250" style="height:auto;" />
 
 - Attached Arduino and power bank onto the base
+- Wiring (I found it more intuitive if I actually color label each wire)
+<img src="https://github.com/user-attachments/assets/a0ca8aa2-25c6-4ad8-9d7a-223e91d6b7a0" alt="Color Label Wire" width="250" style="height:auto;" />
+
 - Learned hobby RC workflow
 - Edited code and successfully controlled turning and driving
 - Base finished
 
 ### Sep 30
 - Learned cardboard building techniques using triangle supports
+
+<img src="https://github.com/user-attachments/assets/e666e45e-9cd4-4ccc-8885-070448f1a01e" alt="Prof Cardboard" width="250" style="height:auto;" />
+
 - Started designing the robot body structure
 
 ### Oct 2

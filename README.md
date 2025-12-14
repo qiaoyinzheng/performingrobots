@@ -222,7 +222,7 @@ No.1 priority: fix audio bug
 ## Team workflow
 ### Split responsibilities with Mariam
 - Mariam had a family emergency after fall break, so we discussed the best collaboration method and decided she would mainly help with decoration and assist me in class by recapping what I completed after class.
-- I worked through the main fabrication, coding, and debugging sessions, and I was proud and surprised by how much I learned running the entire setup myself.
+- I worked through the main fabrication, coding, and debugging sessions, and I was proud and surprised by how much I learned running the entire setup.
 
 # Thank you Performing Robots Fall25!! Thank you Mariam! Thank you Professor Shiloh!! 🫶  
 I am so glad I could come to Abu Dhabi this semester and register for this class. It is truly a once in a lifetime opportunity.

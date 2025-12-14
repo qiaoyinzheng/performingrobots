@@ -1,5 +1,4 @@
-# performingrobots
-Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
+# Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
 
 ## Robot Feature
 ### 1. NeoMatrix

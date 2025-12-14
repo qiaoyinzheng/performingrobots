@@ -76,7 +76,6 @@ I used color-labeled wires to make debugging and reasoning about connections mor
 
 
 ## Hardware overview
-
 - Arduino microcontroller
 - Arduino Shield Hobby RC and Motor Control
 - L298 H-bridge motor driver
@@ -89,7 +88,6 @@ I used color-labeled wires to make debugging and reasoning about connections mor
 ## Control logic and code structure
 
 ### Motor pin configuration
-
 const int LEFT_MOTOR_EN = 9;
 const int LEFT_MOTOR_INA = 8;
 const int LEFT_MOTOR_INB = 7;
@@ -99,12 +97,10 @@ const int RIGHT_MOTOR_IN1 = 10;
 const int RIGHT_MOTOR_IN2 = 12;
 
 ### Speed control
-
 * Used analogWrite() on enable pins to control motor speed
 * Tested different PWM values to create slow, medium, and fast movement states
 
 ### RC behavior logic
-
 * Neutral stick position stops the robot
 * Forward stick moves robot forward
 * Turning achieved through differential motor control
@@ -115,30 +111,25 @@ const int RIGHT_MOTOR_IN2 = 12;
 ## Robot personality through movement
 
 ### Personality concept
-
 **A worried multitasking mom**
 Always moving, slightly rushed, switching tasks quickly, and occasionally aggressive when stressed.
 
 ### Movement language
 
 **Idle behavior**
-
 * Moves forward and backward repeatedly while “talking”
 * Feels restless and never fully still
 
 **Dance behavior**
-
 * Turns in a full circle
 * Reads as performative and expressive
 
 **Angry behavior**
-
 * Moves forward very quickly
 * Pan raised while advancing
 * Aggressive and direct
 
 **Signature move**
-
 * Rapid short movements forward and backward
 * Slight turns
 * Feels anxious, busy, and multitasking
@@ -148,17 +139,14 @@ Always moving, slightly rushed, switching tasks quickly, and occasionally aggres
 ## Reflection
 
 ### What worked
-
 * Color labeling wires made debugging significantly easier
 * RC control allowed expressive movement without additional sensors
 * Differential drive provided clear personality expression using only motion
 
 ### What was challenging
-
 * Revise the code to achieve ideal speed and angle
 
 ### What I would improve
-
 * More refined speed curves for smoother personality transitions
 
 

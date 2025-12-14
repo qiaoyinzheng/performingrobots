@@ -23,18 +23,20 @@ Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
 - Dance move
 - Raise pan when angry
 
+---
+
 ## Timeline
 
-### Sep 4. Base prep
+### Sep 4 Base prep
 - Cut base to 40 cm width in the scene shop
 - Started planning how electronics will be attached to the base
 
-### Sep 23. Motor control fundamentals
+### Sep 23
 - Learned soldering in class
 - Learned L298 motor and H-bridge basics
 - Continued planning mounting points so components can be attached cleanly to the base
 
-### Sep 25. Arduino soldering + RC driving
+### Sep 25
 **Arduino Soldering & Connecting**  
 <img src="https://github.com/user-attachments/assets/bf65d4a6-c749-4e1e-a3c8-c8b8487a5cc9" alt="Arduino Soldering" width="250" style="height:auto;" />
 
@@ -46,16 +48,16 @@ Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
 - Edited code and successfully controlled turning and driving
 - Base finished
 
-### Sep 30. Cardboard structure techniques
+### Sep 30
 - Learned cardboard building techniques using triangle supports
 - Started designing the robot body structure
 
-### Oct 2. Prototyping & building cardboard skeleton
+### Oct 2
 <img src="https://github.com/user-attachments/assets/a3e58bad-e634-40e1-ab1e-58697cf8e3a9" alt="Prototyping" width="250" style="height:auto;" />
 <img src="https://github.com/user-attachments/assets/3e4228b0-a1c9-4125-b834-30c5b01becab" alt="Size Sketch" width="250" style="height:auto;" />
 <img src="https://github.com/user-attachments/assets/56a9a19a-a2cc-45f7-863c-713b59e43d96" alt="Building" width="250" style="height:auto;" />
 
-### Oct 9. Arm building & measuring
+### Oct 9
 <img src="https://github.com/user-attachments/assets/ccb640eb-003d-4e76-a442-d628d5e60197" alt="Arm Building & Measuring 1" width="250" style="height:auto;" />
 <img src="https://github.com/user-attachments/assets/4181a628-df42-4f8c-92d1-8848817d4724" alt="Arm Building & Measuring 2" width="250" style="height:auto;" />
 
@@ -68,7 +70,7 @@ Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
 - Body structure finished
 - Code testing
 
-### Oct 23. Servo integration + midterm checkpoint
+### Oct 23
 - Servo attached
 - Servo code tested
 - Sample code reference (Fall24): https://github.com/oomie/performingRobots/blob/main/code/finalRecieverCode.ino
@@ -93,7 +95,7 @@ Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
 - Prepare fabrication shop costume
 - Mariam and Joy channel 50, addr = 0x7c
 
-### Nov 5. NeoMatrix soldering
+### Nov 5
 - Soldered the NeoMatrix
 
 ### Nov 6
@@ -109,13 +111,13 @@ Performing Robots Fall 2025 - Joy Zheng & Mariam - Wife
 - Names on all items
 - Robot can drive
 
-### Nov 7. Servo angle rewrite
+### Nov 7
 - Rewrote code based on updated servo angle constraints
 
 ### Nov 10
 - Added an extra caster to avoid tipping backward
 
-### Nov 12. Stability fix
+### Nov 12
 - Realized the wheels were also unstable because the nuts and bolts were loose
 <img src="https://github.com/user-attachments/assets/e513451d-27ea-4103-8513-f208b73c1c52" alt="loose bolts" width="250" style="height:auto;" />
 
@@ -174,7 +176,7 @@ Anime girl closed mouth
 
 ### Dec 4
 No.1 priority: fix audio bug
-- During the previous two rehearsals, audio stopped after playing around 15 cases, so I spent a whole week working on this
+- During the previous two rehearsals audio stopped after playing around 15 cases, so I spent a whole week working on this
   - Compared and debugged everything including removing overly frequent interrupt commands in one case
 - Sound debugging
 - Transmitter debugging

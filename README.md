@@ -212,8 +212,11 @@ No.1 priority: fix audio bug
 - Audio testing
 - Decided to switch back to the original Arduino before the show because case response became less reliable on the new one
 - Final look
+
 <img src="https://github.com/user-attachments/assets/85171516-a878-4bb7-8821-9682aa4218e6" alt="Final look" width="250" style="height:auto;" />
+
 - Final Show
+
 <img src="https://github.com/user-attachments/assets/49ce9061-5fb6-44c8-ab3d-ebefa5da12b5" alt="Final Show" width="250" style="height:auto;" />
 
 
